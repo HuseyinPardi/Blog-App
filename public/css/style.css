@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+* {
+    font-family: "Lora", serif !important;
+}
+
+.navbar {
+    background-color: #faedce;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.footer-bootstrap {
+    background-color: #faedce;
+    min-height: 100px;
+    margin-top: 20px !important;
+}
+
+.pages {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pages2 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1.5px solid black;
+    max-width: 70%; /* Oranı bozmadan genişliği %80 olarak ayarlayın */
+    max-height: 70%; /* Oranı bozmadan yüksekliği %80 olarak ayarlayın */
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.home-img {
+    max-width: 100%;
+    height: 100%;
+}
+
+.laravel {
+    height: 65px;
+    width: 90px;
+}
+
+.outer-auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2e8c6;
+    min-height: 100vh;
+    padding: 20px;
+    gap: 20px;
+}
+
+.inner-auth {
+    padding: 50px;
+    border: 1.5px solid #982b1c;
+    border-radius: 8px;
+    display: inline-block;
+    background-color: #c5aa6a;
+    min-width: 400px;
+}
+
+.login-img {
+    height: 40px;
+    width: 40px;
+    margin-left: 5px;
+}
+
+.auth-tag {
+    color: #b43f3f;
+    text-decoration: none;
+}
+
+.auth-tag:hover {
+    color: #ff8225;
+}
+
+.auth-button {
+    /* background-color: #fffbe6;
+    border: 1.5px solid #fffbe6;
+    border-radius: 5px;
+    padding: 6px; */
+
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #fffbe6;
+    border: 1.5px solid #fffbe6;
+    border-radius: 5px;
+    padding: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+    background-color: #6eacda;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 sütun oluştur */
+    gap: 50px; /* Resimler arasında boşluk */
+    margin: 50px;
+}
+
+/* Her bir resim öğesi */
+.image-item {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 1.5px solid #faedce;
+    background-color: #fffbe6;
+}
+
+/* Resimleri oranlarını koruyarak boyutlandır */
+.image-wrapper {
+    width: 100%;
+    height: 350px; /* Tüm resimler için sabit bir yükseklik */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Resim dışarı taşarsa gizler */
+}
+
+/* Resimleri kapsayıcı içinde oranını koruyarak ayarla */
+.image-wrapper img {
+    width: auto;
+    height: 100%; /* Yüksekliği kapsayıcıya uyarla */
+    display: block;
+    margin: 0 auto;
+}
+
+.break-bar {
+    background-color: #faedce;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.break-bar-item h2 {
+    color: #982b1c;
+}
+
+.profile {
+    background-color: #faedce;
+    padding: 30px;
+    border: 15px solid #faedce;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+.blogs {
+    background-color: #faedce;
+    padding: 15px;
+    border: 6px solid #faedce;
+    border-radius: 7.5px;
+    transition: transform 0.5s ease, background-color 0.5s ease,
+        border-color 0.5s ease;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.blogs:hover {
+    transform: translateX(10px) translateY(10px); /* X ve Y eksenlerinde hareket */
+    background-color: #fefbd8;
+    border-color: #fefbd8;
+}
+
+.blogs h2 {
+    color: red;
+}
+
+.create {
+    width: 600px;
+    resize: vertical; /* Kullanıcının sadece dikey olarak boyutlandırmasına izin verir */
+}
+
+.crud-btn {
+    display: flex;
+    gap: 10px;
+}
