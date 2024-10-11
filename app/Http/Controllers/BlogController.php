@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBlogRequest;
+use App\Http\Requests\UpdateBlogRequest;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Category;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $blogs = Blog::latest()->paginate(10);
         return view('dashboard.blogs.index', compact('blogs'));
@@ -21,7 +26,7 @@ class BlogController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         $categories = Category::all();
         return view('dashboard.blogs.create', compact('categories'));
@@ -30,21 +35,12 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreBlogRequest $request): RedirectResponse
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'category_id' => 'required'
-        ]);
-
-        Blog::create([
-            'title' => $request->input('title'),
-            'content' => $request->input('content'),
-            'user_id' => Auth::id(),
-            'category_id' => $request->input('category_id')
-        ]);
-
+        $validated = $request->validated();
+        $validated['slug'] = Str::slug($validated['title']);
+        $validated['user_id'] = Auth::id();
+        Blog::create($validated);
         return redirect()->route('blogs.index')
             ->with('success', 'Blog başarıyla oluşturuldu.');
     }
@@ -52,7 +48,7 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Blog $blog)
+    public function show(Blog $blog): View
     {
         return view('dashboard.blogs.show', compact('blog'));
     }
@@ -60,7 +56,7 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit(Blog $blog): View
     {
         return view('dashboard.blogs.edit', compact('blog', ));
     }
@@ -68,20 +64,12 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(UpdateBlogRequest $request, Blog $blog): RedirectResponse
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'content' => 'required',
-        ]);
-
-
-        $blog->update([
-            'title' => $request->input('title'),
-            'content' => $request->input('content'),
-        ]);
-
-
+        $validated = $request->validated();
+        $validated['slug'] = Str::slug($validated['title']);
+        $blog->fill($validated);
+        $blog->save();
         return redirect()->route('blogs.index')
             ->with('success', 'Blog başarıyla güncellendi.');
     }
@@ -89,10 +77,9 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy(Blog $blog): RedirectResponse
     {
         $blog->delete();
-
         return redirect()->route('blogs.index')
             ->with('success', 'Blog başarıyla silindi.');
     }

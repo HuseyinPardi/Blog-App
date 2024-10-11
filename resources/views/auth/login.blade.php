@@ -23,7 +23,7 @@ Login
                 <h1>Giriş Formu</h1>
                 <img src="{{asset("my_imgs/blog-svgrepo-com (1).svg")}}" alt="login" class="login-img">
              </div>
-            <form action="{{route("login")}}" method="POST">
+            <form action="{{route("login.index")}}" method="POST">
                  @csrf
                 <h5>Email</h5>
                 <input type="text" class="form-control" name="email" placeholder="E-mail">
@@ -40,7 +40,9 @@ Login
                 <button class="btn btn-success">Giriş Yap</button>
             </form>
             <br>
-            <a href="{{url('register')}}" class="auth-tag">Hesabım Yok?</a>
+            <a href="{{route('register.index')}}" class="auth-tag">Hesabım Yok?</a>
+            <br>
+            <a href="{{route('admin.login.index')}}" class="auth-tag">Admin Olarak Giriş Yapmak İstiyorum</a>
         </div>
     </div>
 

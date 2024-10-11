@@ -19,11 +19,11 @@ Register
                     {{session()->get("error")}}
                 </div>                
             @endif
-             <div class="header-container">
+            <div class="header-container">
                 <h1>Kayıt Formu</h1>
                 <img src="{{asset("my_imgs/blog-svgrepo-com (1).svg")}}" alt="register" class="login-img">
              </div>
-            <form action="{{route("register")}}" method="POST">
+            <form action="{{route("register.index")}}" method="POST">
                  @csrf
                 <h5>İsminiz</h5>
                 <input type="text" class="form-control" name="name" placeholder="İsim">
@@ -46,11 +46,9 @@ Register
                 <button class="btn btn-success">Kayıt Ol</button>
             </form>
             <br>
-            <a href="{{url('login')}}" class="auth-tag">Zaten bir hesabım var</a>
+            <a href="{{route('login.index')}}" class="auth-tag">Zaten bir hesabım var</a>
+            <br>
+            <a href="{{route('admin.register.index')}}" class="auth-tag">Admin olarak kayıt olmak istiyorum</a>
         </div>
     </div>
-
-
-
-
 @endsection

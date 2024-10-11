@@ -11,8 +11,5 @@
                 <h2>Email: {{$user->email}}</h2>
             </div>
         </div>
-    <div>
-
-    </div>
     </div>
 @endsection

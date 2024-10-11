@@ -25,7 +25,7 @@ HomePage
     <div class="container">
         <div class="pages2">
             <div>
-                <img src="{{asset('my_imgs/comment1-img.jpg')}}" alt="healthy-img" class="home-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyS6AyPiiSm_IsO_pc144o8ZSGtnBk_CEl2w&s" alt="healthy-img" class="home-img">
             </div>
             <br>
             <div>

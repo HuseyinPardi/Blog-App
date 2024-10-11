@@ -12,7 +12,7 @@
             <a class="nav-link {{Route::is("home") ? "active" : ""}}" aria-current="page" href="{{route("home")}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{Route::is("categories") ? "active" : ""}}" href="{{route("categories")}}">Categories</a>
+            <a class="nav-link {{Route::is("categories") ? "active" : ""}}" href="{{route("categories.index")}}">Categories</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{Route::is("blogs.index") ? "active" : ""}}" href="{{route("blogs.index")}}">Blogs</a>
@@ -28,10 +28,6 @@
           @csrf
           <button type="submit" class="auth-button">Çıkış Yap</button>
         </form>
-        {{-- <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> --}}
       </div>
     </div> 
   @endauth
@@ -49,21 +45,15 @@
             <a class="nav-link {{Route::is("welcome") ? "active" : ""}}" aria-current="page" href="{{route("welcome")}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{Route::is("categories") ? "active" : ""}}" href="{{route("categories")}}">Categories</a>
+            <a class="nav-link {{Route::is("categories") ? "active" : ""}}" href="{{route("categories.index")}}">Categories</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{Route::is("blogs.index") ? "active" : ""}}" href="{{route("blogs.index")}}">Blogs</a>
           </li>
         </ul>
         <div>
-            <form action="{{ route('register') }}" method="GET" style="display: inline;">
-            @csrf
-            <button class="auth-button" type="submit">Kayıt Ol</button>
-          </form>
-          <form action="{{ route('login') }}" method="GET" style="display: inline;">
-            @csrf
-            <button  class="auth-button" type="submit">Giriş Yap</button>
-          </form>
+          <a href="{{ route('register.index') }}" style="display: inline;" class="auth-button" type="submit">Kayıt Ol</a>
+          <a href="{{ route('login.index') }}" style="display: inline;" class="auth-button" type="submit">Giriş Yap</a>
         </div>
       </div>
     </div> 
